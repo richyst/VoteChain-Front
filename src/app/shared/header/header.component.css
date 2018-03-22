@@ -1,0 +1,13 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.cuerpo{
+  max-width: 82.5vw;
+  margin: auto;
+  margin-top: 50px;
+
+}

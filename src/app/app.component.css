@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 80vw;
+  margin: auto;
+}
+.pensando {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.0);
+}
+
+.spinner {
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.difuminar {
+  filter: blur(20px);
+  pointer-events: none;
+}
