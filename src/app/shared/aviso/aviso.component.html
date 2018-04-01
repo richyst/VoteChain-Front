@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.mensaje[0]}}:</h1>
+
+<div mat-dialog-content>
+  <div *ngFor="let msj of data.mensaje, let i = index;">
+    <p *ngIf="i>0" style="margin: 40px 0 40px 14px;">{{msj}}</p>
+  </div>
+</div>
+
+<div mat-dialog-actions class="float-sm-right">
+  <div>
+    <button type="button" mat-button color="primary" (click)="dialogRef.close()">Retirar</button>
+  </div>
+
+</div>

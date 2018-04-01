@@ -1,22 +1,43 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './shared/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
+import { VotarComponent } from './votos/votar/votar.component';
+import { AnalisisComponent } from './votos/analisis/analisis.component';
+import { MainComponent } from './votos/main/main.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/Home',
+    redirectTo: '/Votos',
     pathMatch: 'full'
   },
   {
-    path: 'Home',
-    component: HomeComponent
+    path: 'Votos',
+    component: MainComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'Votar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'Votar',
+        component: VotarComponent
+      },
+      {
+        path: 'Analisis',
+        component: AnalisisComponent
+      }
+    ]
   },
   {
     path: 'Login',
     component: LoginComponent
+  },
+  {
+    path: '**',
+    component: MainComponent
   }
 ];
 

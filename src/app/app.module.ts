@@ -7,41 +7,49 @@ import { HttpModule } from '@angular/http';
 
 import {
   MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
   MatIconModule,
   MatCardModule,
   MatButtonModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 
 
 import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './shared/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProcesandoService } from './services/procesando.service';
 import { VotarComponent } from './votos/votar/votar.component';
 import { AnalisisComponent } from './votos/analisis/analisis.component';
+import { MainComponent } from './votos/main/main.component';
+import { AvisoComponent } from './shared/aviso/aviso.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
     VotarComponent,
-    AnalisisComponent
+    AnalisisComponent,
+    MainComponent,
+    AvisoComponent
   ],
   imports: [
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
@@ -49,6 +57,7 @@ import { AnalisisComponent } from './votos/analisis/analisis.component';
     routing
   ],
   providers: [appRoutingProviders, ProcesandoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AvisoComponent]
 })
 export class AppModule { }

@@ -1,3 +1,56 @@
-<p>
-  analisis works!
-</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center" width="5%" scope="col">ID</th>
+      <th class="text-center" width="13%" scope="col">Código</th>
+      <th class="text-center" width="13%" scope="col">Elección</th>
+      <th class="text-center" width="13%" scope="col">Entidad</th>
+      <th class="text-center" width="13%" scope="col">Distrito</th>
+      <th class="text-center" width="13%" scope="col">Municipio</th>
+      <th class="text-center" width="13%" scope="col">Sección</th>
+      <th class="text-center" width="13%" scope="col">Localidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vote of votes">
+      <th scope="row">{{vote.Key}}</th>
+      <td>{{vote.codigo}}</td>
+      <td>{{vote.eleccion}}</td>
+      <td>@{{vote.entidad}}</td>
+      <td>@{{vote.distrito}}</td>
+      <td>@{{vote.municipio}}</td>
+      <td>@{{vote.seccion}}</td>
+      <td>@{{vote.localidad}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="espacio"></div>
+<mat-form-field class="campo-texto" color="accent">
+  <input (input)="buscar()" [(ngModel)]="busqueda" matInput placeholder="String de Query" >
+</mat-form-field>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center" width="5%" scope="col">ID</th>
+      <th class="text-center" width="13%" scope="col">Código</th>
+      <th class="text-center" width="13%" scope="col">Elección</th>
+      <th class="text-center" width="13%" scope="col">Entidad</th>
+      <th class="text-center" width="13%" scope="col">Distrito</th>
+      <th class="text-center" width="13%" scope="col">Municipio</th>
+      <th class="text-center" width="13%" scope="col">Sección</th>
+      <th class="text-center" width="13%" scope="col">Localidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vote of query">
+      <th scope="row">{{vote.Key}}</th>
+      <td>{{vote.codigo}}</td>
+      <td>{{vote.eleccion}}</td>
+      <td>@{{vote.entidad}}</td>
+      <td>@{{vote.distrito}}</td>
+      <td>@{{vote.municipio}}</td>
+      <td>@{{vote.seccion}}</td>
+      <td>@{{vote.localidad}}</td>
+    </tr>
+  </tbody>
+</table>
