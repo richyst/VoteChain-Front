@@ -4,7 +4,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AvisoComponent } from '../../shared/aviso/aviso.component';
 import { VotosService } from '../../services/votos.service';
 import { NgForm } from '@angular/forms';
-
 @Component({
   selector: 'app-analisis',
   templateUrl: './analisis.component.html',

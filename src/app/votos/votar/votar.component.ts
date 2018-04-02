@@ -4,6 +4,7 @@ import { VotosService } from '../../services/votos.service';
 import { AvisoComponent } from '../../shared/aviso/aviso.component';
 import { NgForm } from '@angular/forms';
 
+import { v4 as uuid } from 'uuid';
 @Component({
   selector: 'app-votar',
   templateUrl: './votar.component.html',
@@ -15,7 +16,7 @@ export class VotarComponent implements OnInit {
     codigo: '1234',
     entidad: 'CDMX',
     distrito: '1',
-    municipio: 'Coyoacán',
+    municipio: 'Coyoacan',
     seccion: '3',
     localidad: '23023'
   };
@@ -42,10 +43,12 @@ export class VotarComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(myForm: NgForm) {
-    const build = '1' + '-' + this.usuario.codigo + '-' + this.voto.nombre + '-' + this.usuario.entidad
-    + '-' + this.usuario.distrito + '-' + this.usuario.municipio + '-' + this.usuario.seccion + '-' + this.usuario.localidad;
+    console.log(myForm);
+    const vote = uuid() + '_' + this.usuario.codigo + '_' + myForm.value.eleccion.partido + '_' +
+    this.usuario.entidad + '_' + this.usuario.distrito + '_' + this.usuario.municipio + '_' +
+    this.usuario.seccion + '_' + this.usuario.localidad;
     if (myForm.valid) {
-      this.votosService.votar(build).subscribe(
+      this.votosService.votar(vote).subscribe(
         data => {
           console.log(data);
         },

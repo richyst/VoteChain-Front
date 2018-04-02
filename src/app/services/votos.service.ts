@@ -9,9 +9,9 @@ export class VotosService {
   url = 'http://localhost:8000';
   constructor(private _http: Http, private procesandoService: ProcesandoService) { }
 
-  votar(data: any) {
-    const vote = data.id + '-' + data.codigo + '-' + data.eleccion + '-' + data.entidad + '-' + data.distrito
-      + '-' + data.municipio + '-' + data.seccion + '-' + data.localidad;
+  votar(vote: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     return this._http.get(this.url + '/add_vote/' + vote)
       .map((response: Response) => {
         return response.json();
@@ -24,6 +24,8 @@ export class VotosService {
       .map(res => res.json());
   }
   getVotoDomain(search: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     return this._http.get(this.url + '/get_by_domain/' + search)
       .map((response: Response) => {
         return response.json();
