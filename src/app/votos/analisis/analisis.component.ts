@@ -23,7 +23,7 @@ export class AnalisisComponent implements OnInit {
     this.votosService.getVotos().subscribe(
       data => {
         console.log(data);
-        this.votes = JSON.parse(data._body);
+        this.votes = data;
       },
       error => {
         this.openAviso(['Error', error]);
