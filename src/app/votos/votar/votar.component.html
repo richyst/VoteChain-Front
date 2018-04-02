@@ -1,3 +1,19 @@
-<p>
-  votar works!
-</p>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate>
+  <div class="formulario">
+    <mat-form-field class="campo">
+      <mat-select placeholder="Candidato a elegir" [(ngModel)]="voto" name="eleccion" required>
+        <mat-option *ngFor="let candidato of candidatos" [value]="candidato">
+          {{ candidato.nombre }} - {{candidato.partido}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="boton-login" *ngIf="voto">
+    <h4>Confirma tu voto por:
+      <br>
+      <span class="text-info">{{voto.nombre}} - {{voto.partido}}</span>
+    </h4>
+    <br>
+    <button mat-raised-button color="accent" *ngIf="f.form.valid" type="submit">Votar</button>
+  </div>
+</form>

@@ -13,7 +13,8 @@ import {
   MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 } from '@angular/material';
 
 
@@ -27,6 +28,7 @@ import { VotarComponent } from './votos/votar/votar.component';
 import { AnalisisComponent } from './votos/analisis/analisis.component';
 import { MainComponent } from './votos/main/main.component';
 import { AvisoComponent } from './shared/aviso/aviso.component';
+import { VotosService } from './services/votos.service';
 
 
 
@@ -50,13 +52,14 @@ import { AvisoComponent } from './shared/aviso/aviso.component';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatSelectModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
     routing
   ],
-  providers: [appRoutingProviders, ProcesandoService],
+  providers: [appRoutingProviders, ProcesandoService, VotosService],
   bootstrap: [AppComponent],
   entryComponents: [AvisoComponent]
 })

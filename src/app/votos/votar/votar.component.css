@@ -1,0 +1,16 @@
+.formulario {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.campo {
+  width: 100%;
+  text-align: center;
+}
+
+.boton-login {
+  margin-top: 30px;
+  text-align: center;
+}
