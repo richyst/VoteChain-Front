@@ -23,10 +23,12 @@ export class AnalisisComponent implements OnInit {
     this.votosService.getVotos().subscribe(
       data => {
         console.log(data);
-        this.votes = data;
+        this.votes = JSON.parse(data._body);
       },
       error => {
-        this.openAviso(['Error', 'No se pudieron recuperar los votos']);
+        this.openAviso(['Error', error]);
+        console.log(error);
+
       }
     );
   }

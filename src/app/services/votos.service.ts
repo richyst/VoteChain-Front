@@ -18,10 +18,10 @@ export class VotosService {
       });
   }
   getVotos() {
-    return this._http.get(this.url + '/get_all_votes/')
-      .map((response: Response) => {
-        return response.json();
-      });
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this._http.get(this.url + '/get_all_votes/', { headers: headers })
+      .map(res => {return res});
   }
   getVotoDomain(factor: any, parametro: any) {
     const search = factor + '-' + parametro;
