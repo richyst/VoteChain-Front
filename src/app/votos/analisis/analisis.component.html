@@ -25,9 +25,20 @@
   </tbody>
 </table>
 <div class="espacio"></div>
-<mat-form-field class="campo-texto" color="accent">
-  <input (input)="buscar()" [(ngModel)]="busqueda" matInput placeholder="String de Query" >
-</mat-form-field>
+<form (ngSubmit)="buscar(f)" #f="ngForm" ngNativeValidate>
+  <mat-form-field class="campo-texto" color="accent">
+    <mat-select placeholder="Campo a buscar" name="seleccion" ngModel #seleccion required>
+      <mat-option *ngFor="let eleccion of elecciones" [value]="eleccion" >
+        {{ eleccion}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="campo-texto" color="accent">
+    <input name="busqueda" matInput placeholder="String de Query" ngModel required #busqueda>
+  </mat-form-field>
+  <button mat-raised-button color="accent" [disabled]="!f.form.valid" type="submit">Buscar</button>
+</form>
+<br>
 <table class="table">
   <thead class="thead-dark">
     <tr>

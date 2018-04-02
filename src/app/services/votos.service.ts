@@ -21,10 +21,9 @@ export class VotosService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this._http.get(this.url + '/get_all_votes/', { headers: headers })
-      .map(res => {return res.json()});
+      .map(res => res.json());
   }
-  getVotoDomain(factor: any, parametro: any) {
-    const search = factor + '-' + parametro;
+  getVotoDomain(search: string) {
     return this._http.get(this.url + '/get_by_domain/' + search)
       .map((response: Response) => {
         return response.json();
