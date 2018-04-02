@@ -6,7 +6,7 @@ import { ProcesandoService } from './procesando.service';
 import 'rxjs/add/operator/catch';
 @Injectable()
 export class VotosService {
-  url = 'http://www.localhost:8000';
+  url = 'http://localhost:8000';
   constructor(private _http: Http, private procesandoService: ProcesandoService) { }
 
   votar(data: any) {
