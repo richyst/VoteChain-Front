@@ -55,13 +55,13 @@
   <tbody>
     <tr *ngFor="let vote of query">
       <th scope="row">{{vote.Key}}</th>
-      <td>{{vote.codigo}}</td>
-      <td>{{vote.eleccion}}</td>
-      <td>{{vote.entidad}}</td>
-      <td>{{vote.distrito}}</td>
-      <td>{{vote.municipio}}</td>
-      <td>{{vote.seccion}}</td>
-      <td>{{vote.localidad}}</td>
+      <td>{{vote.Record.codigo}}</td>
+      <td>{{vote.Record.eleccion}}</td>
+      <td>{{vote.Record.entidad}}</td>
+      <td>{{vote.Record.distrito}}</td>
+      <td>{{vote.Record.municipio}}</td>
+      <td>{{vote.Record.seccion}}</td>
+      <td>{{vote.Record.localidad}}</td>
     </tr>
   </tbody>
 </table>
