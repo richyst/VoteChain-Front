@@ -53,7 +53,8 @@ export class VotarComponent implements OnInit {
           console.log(data);
         },
         error => {
-          this.openAviso(['Error', 'No se pudo votar']);
+          this.openAviso(['Error', error]);
+          console.log(error);
         }
       );
     }
