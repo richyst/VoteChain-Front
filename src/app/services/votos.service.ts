@@ -13,7 +13,7 @@ export class VotosService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this._http.get(this.url + '/add_vote/' + vote)
-      .map((res) => res.json());
+      .map((res) => res;
   }
   getVotos() {
     const headers = new Headers();
