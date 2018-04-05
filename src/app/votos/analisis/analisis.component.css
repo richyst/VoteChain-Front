@@ -5,6 +5,5 @@
   width: 100%;
 }
 .uuid{
-  overflow: hidden;
-  height: 10px;
+  overflow-x: hidden;
 }
