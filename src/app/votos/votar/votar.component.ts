@@ -44,7 +44,12 @@ export class VotarComponent implements OnInit {
   }
   onSubmit(myForm: NgForm) {
     console.log(myForm);
-    const vote = uuid() + '_' + this.usuario.codigo + '_' + myForm.value.eleccion.partido + '_' +
+    let id = uuid();
+    const reg = /[0-9]{1}/;
+    while (!(reg.test(id.substr(0, 1)))) {
+      id = uuid();
+    }
+    const vote = id + '_' + this.usuario.codigo + '_' + myForm.value.eleccion.partido + '_' +
     this.usuario.entidad + '_' + this.usuario.distrito + '_' + this.usuario.municipio + '_' +
     this.usuario.seccion + '_' + this.usuario.localidad;
     if (myForm.valid) {
