@@ -4,3 +4,6 @@
 .campo-texto{
   width: 100%;
 }
+.uuid{
+  overflow: hidden;
+}
