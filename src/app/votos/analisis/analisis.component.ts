@@ -10,8 +10,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./analisis.component.css']
 })
 export class AnalisisComponent implements OnInit {
-  votes: any;
+  votes = [];
+  partidos = [];
+  conteos = [];
   query: any;
+  graf = [];
   elecciones = [
     'Eleccion',
     'Codigo',
@@ -20,9 +23,34 @@ export class AnalisisComponent implements OnInit {
     'Municipio',
     'Seccion',
     'Localidad'
-  ]
-  constructor(public dialog: MatDialog, private votosService: VotosService) { }
+  ];
+  single = [
+    {
+      'name': 'Germany',
+      'value': 8940000
+    },
+    {
+      'name': 'USA',
+      'value': 5000000
+    },
+    {
+      'name': 'France',
+      'value': 7200000
+    }
+  ];
 
+  view: any[] = [700, 400];
+
+  gradient = false;
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+  // line, area
+  autoScale = true;
+  constructor(public dialog: MatDialog, private votosService: VotosService) { }
+  onSelect(event) {
+    console.log(event);
+  }
   ngOnInit() {
     this.getAllVotes();
   }
@@ -39,6 +67,33 @@ export class AnalisisComponent implements OnInit {
 
       }
     );
+  }
+  limpiar() {
+    this.partidos = [];
+    this.conteos = [];
+    this.partidos.push(this.votes[0].Record.eleccion);
+    for (let i = 0; i < this.partidos.length; i++) {
+      for (let j = 0; j < this.votes.length; j++) {
+        let check = false;
+        if (this.votes[j].Record.eleccion === this.partidos[i]) {
+          check = true;
+        }
+        if (!check && ((this.votes.length - 1) === i)) {
+          this.partidos.push(this.votes[j].Record.eleccion);
+        }
+      }
+    }
+    for (let i = 0; i < this.partidos.length; i++) {
+      for (let j = 0; j < this.votes.length; j++) {
+        if (this.votes[j].Record.eleccion === this.partidos[i]) {
+          this.conteos[i]++;
+        }
+      }
+    }
+    this.graf = [];
+    for (let i = 0; i < this.partidos.length; i++) {
+      this.graf[i] = {name: this.partidos[i], value: this.conteos[i]};
+    }
   }
 
   buscar(form: NgForm) {

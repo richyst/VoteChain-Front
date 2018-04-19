@@ -18,6 +18,7 @@ import {
 } from '@angular/material';
 
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -57,7 +58,8 @@ import { VotosService } from './services/votos.service';
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    NgxChartsModule
   ],
   providers: [appRoutingProviders, ProcesandoService, VotosService],
   bootstrap: [AppComponent],
