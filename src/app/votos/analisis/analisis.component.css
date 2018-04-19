@@ -4,9 +4,12 @@
 .campo-texto{
   width: 100%;
 }
-.uuid{
+.uuid {
   overflow-x: hidden;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
 
 .chart{
   width: 800px;

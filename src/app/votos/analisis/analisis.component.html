@@ -1,6 +1,6 @@
-<table class="table">
+<table class="table" style="table-layout:fixed;">
   <thead class="thead-dark">
-    <tr>
+    <tr >
       <th class="text-center" width="5%" scope="col">ID</th>
       <th class="text-center" width="13%" scope="col">Código</th>
       <th class="text-center" width="13%" scope="col">Elección</th>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vote of votes">
+    <tr *ngFor="let vote of votes" class="uuid">
       <th scope="row" class="uuid">{{vote.Key}}</th>
       <td>{{vote.Record.codigo}}</td>
       <td>{{vote.Record.eleccion}}</td>
@@ -44,7 +44,7 @@
   <button mat-raised-button color="accent" [disabled]="!f.form.valid" type="submit">Buscar</button>
 </form>
 <br>
-<table class="table">
+<table class="table" style="table-layout:fixed;">
   <thead class="thead-dark">
     <tr>
       <th class="text-center" width="5%" scope="col">ID</th>
@@ -58,7 +58,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vote of query">
+    <tr *ngFor="let vote of query" class="uuid">
       <th scope="row" class="uuid">{{vote.Key}}</th>
       <td>{{vote.Record.codigo}}</td>
       <td>{{vote.Record.eleccion}}</td>
