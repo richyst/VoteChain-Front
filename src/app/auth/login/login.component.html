@@ -1,10 +1,10 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate>
   <div class="formulario">
     <mat-form-field class="campo">
-      <input matInput placeholder="Username" required>
+      <input matInput placeholder="Username" type="text" name="Username" ngModel required>
     </mat-form-field>
     <mat-form-field class="campo">
-      <input matInput placeholder="Password" required>
+      <input matInput placeholder="Password" type="password" name="Password" ngModel required>
     </mat-form-field>
     <div class="boton-login">
       <button mat-raised-button color="accent" *ngIf="f.form.valid" type="submit" >Entrar</button>
