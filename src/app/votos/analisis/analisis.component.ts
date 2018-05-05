@@ -11,10 +11,33 @@ import { NgForm } from '@angular/forms';
 })
 export class AnalisisComponent implements OnInit {
   votes = [];
-  partidos = [];
   conteos = [];
+  conteosQuery = [];
   query: any;
   graf = [];
+  grafQuery = [];
+  candidatos = [
+    {
+      nombre: 'Andrés Manuél López Obrador',
+      partido: 'MORENA-PES-PT'
+    },
+    {
+      nombre: 'Ricardo Anaya Cortés',
+      partido: 'PAN-PRD-MC'
+    },
+    {
+      nombre: 'José Antonio Meade',
+      partido: 'PRI-PVEM-PANAL'
+    },
+    {
+      nombre: 'Margarita Zavala',
+      partido: 'INDEPENDIENTE-ZAVA'
+    },
+    {
+      nombre: 'Jaime Heliodoro Rodríguez Calderón',
+      partido: 'INDEPENDIENTE-BRONCO'
+    }
+  ];
   elecciones = [
     'Eleccion',
     'Codigo',
@@ -39,11 +62,11 @@ export class AnalisisComponent implements OnInit {
     }
   ];
 
-  view: any[] = [700, 400];
+  view: any[] = [ 1100, 400];
 
   gradient = false;
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#b03d27', '#C7B42C', '#A10A28', '#4286f4','#b03df4' ]
   };
   // line, area
   autoScale = true;
@@ -60,6 +83,7 @@ export class AnalisisComponent implements OnInit {
       data => {
         console.log(data);
         this.votes = data;
+        this.limpiar();
       },
       error => {
         this.openAviso(['Error', error]);
@@ -69,30 +93,33 @@ export class AnalisisComponent implements OnInit {
     );
   }
   limpiar() {
-    this.partidos = [];
-    this.conteos = [];
-    this.partidos.push(this.votes[0].Record.eleccion);
-    for (let i = 0; i < this.partidos.length; i++) {
+    this.conteos = [0,0,0,0,0,0,0,0,0,0];
+    
+    for (let i = 0; i < this.candidatos.length; i++) {
       for (let j = 0; j < this.votes.length; j++) {
-        let check = false;
-        if (this.votes[j].Record.eleccion === this.partidos[i]) {
-          check = true;
-        }
-        if (!check && ((this.votes.length - 1) === i)) {
-          this.partidos.push(this.votes[j].Record.eleccion);
-        }
-      }
-    }
-    for (let i = 0; i < this.partidos.length; i++) {
-      for (let j = 0; j < this.votes.length; j++) {
-        if (this.votes[j].Record.eleccion === this.partidos[i]) {
-          this.conteos[i]++;
+        if (this.votes[j].Record.eleccion === this.candidatos[i].partido) {
+          this.conteos[i]+= 1;
         }
       }
     }
     this.graf = [];
-    for (let i = 0; i < this.partidos.length; i++) {
-      this.graf[i] = {name: this.partidos[i], value: this.conteos[i]};
+    for (let i = 0; i < this.candidatos.length; i++) {
+      this.graf[i] = {name: this.candidatos[i].partido, value: this.conteos[i]};
+    }
+  }
+  limpiarQuery() {
+    this.conteosQuery = [0,0,0,0,0,0,0,0,0,0];
+
+    for (let i = 0; i < this.candidatos.length; i++) {
+      for (let j = 0; j < this.votes.length; j++) {
+        if (this.votes[j].Record.eleccion === this.candidatos[i].partido) {
+          this.conteosQuery[i]+= 1;
+        }
+      }
+    }
+    this.grafQuery = [];
+    for (let i = 0; i < this.candidatos.length; i++) {
+      this.grafQuery[i] = {name: this.candidatos[i].partido, value: this.conteosQuery[i]};
     }
   }
 
@@ -104,6 +131,7 @@ export class AnalisisComponent implements OnInit {
       data => {
         console.log(data);
         this.query = data;
+        this.limpiarQuery();
       },
       error => {
         this.openAviso(['Error', error]);

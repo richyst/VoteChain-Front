@@ -26,16 +26,20 @@ export class VotarComponent implements OnInit {
       partido: 'MORENA-PES-PT'
     },
     {
-      nombre: 'José Antonio Meade',
-      partido: 'PRI-PVEM-PANAL'
-    },
-    {
       nombre: 'Ricardo Anaya Cortés',
       partido: 'PAN-PRD-MC'
     },
     {
+      nombre: 'José Antonio Meade',
+      partido: 'PRI-PVEM-PANAL'
+    },
+    {
       nombre: 'Margarita Zavala',
-      partido: 'INDEPENDIETE'
+      partido: 'INDEPENDIENTE-ZAVA'
+    },
+    {
+      nombre: 'Jaime Heliodoro Rodríguez Calderón',
+      partido: 'INDEPENDIENTE-BRONCO'
     }
   ];
   constructor(public dialog: MatDialog, private votosService: VotosService) { }

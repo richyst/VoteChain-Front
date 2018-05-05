@@ -5,13 +5,17 @@
   width: 100%;
 }
 .uuid {
-  overflow-x: hidden;
-  overflow: hidden;
+  overflow: scroll;
   white-space: nowrap;
+  text-align: center;
+}
+.celda{
+  overflow: scroll;
+  white-space: nowrap;
+  text-align: center;
 }
 
 
 .chart{
-  width: 800px;
-  margin: auto;
+  margin: 0 15px 0 15px;
 }
