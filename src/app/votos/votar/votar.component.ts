@@ -60,7 +60,7 @@ export class VotarComponent implements OnInit {
       this.votosService.votar(vote).subscribe(
         data => {
           console.log(data);
-          alert('Ya votaste perrito');
+          alert('Se ha emitido el voto');
         },
         error => {
           this.openAviso(['Error', error]);
