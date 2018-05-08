@@ -111,8 +111,8 @@ export class AnalisisComponent implements OnInit {
     this.conteosQuery = [0,0,0,0,0,0,0,0,0,0];
 
     for (let i = 0; i < this.candidatos.length; i++) {
-      for (let j = 0; j < this.votes.length; j++) {
-        if (this.votes[j].Record.eleccion === this.candidatos[i].partido) {
+      for (let j = 0; j < this.query.length; j++) {
+        if (this.query[j].Record.eleccion === this.candidatos[i].partido) {
           this.conteosQuery[i]+= 1;
         }
       }
