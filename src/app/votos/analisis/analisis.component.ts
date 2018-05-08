@@ -125,7 +125,7 @@ export class AnalisisComponent implements OnInit {
 
   buscar(form: NgForm) {
     console.log(form);
-    const search = form.value.seleccion.toLowerCase() + '-' + form.value.busqueda;
+    const search = form.value.seleccion.toLowerCase() + '_' + form.value.busqueda;
     console.log(search);
     this.votosService.getVotoDomain(search).subscribe(
       data => {
